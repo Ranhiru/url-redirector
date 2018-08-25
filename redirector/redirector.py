@@ -1,2 +1,5 @@
 def create_redirection(event, context):
-    print("Hello World!")
+    return {
+      "statusCode": 200,
+      "body": { "key": "XXXX-YYYY-ZZZZZ" }
+    }
