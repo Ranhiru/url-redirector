@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'This is the template for creating a simple URL Redirection service named
+  Redirector with API Gateway and  AWS Lambda
+
+  '
+Resources:
+  RedirectorCreateRedirection:
+    Properties:
+      CodeUri: s3://url-redirector/4d213b39df2c5b17d0dd49ec801d8924
+      Description: 'This function takes in a URL, stores it in DynamoDB with a unique
+        key and returns the unique key back as a response
+
+        '
+      Handler: redirector.create_redirection
+      Runtime: python3.6
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31
