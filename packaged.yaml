@@ -12,7 +12,7 @@ Resources:
     Type: AWS::Serverless::SimpleTable
   RedirectorCreateRedirection:
     Properties:
-      CodeUri: s3://url-redirector/fe0acb04f5d4fbda709b8f45048d437e
+      CodeUri: s3://url-redirector/9b488d9a58f1b85adab11a54fb848a65
       Description: 'This function takes in a URL, stores it in DynamoDB with a unique
         key and returns the unique key back as a response
 
@@ -22,6 +22,12 @@ Resources:
           TABLE_NAME:
             Ref: RedirectionsTable
           TOKEN_SIZE: 10
+      Events:
+        SubmitUrl:
+          Properties:
+            Method: post
+            Path: /submit
+          Type: Api
       Handler: redirector.create_redirection
       Policies:
       - Statement:

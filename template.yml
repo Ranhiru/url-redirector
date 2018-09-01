@@ -32,6 +32,12 @@ Resources:
                         - Ref: 'AWS::AccountId'
                         - ':table/'
                         - Ref: RedirectionsTable
+          Events:
+            SubmitUrl:
+              Type: Api
+              Properties:
+                Path: /submit
+                Method: post
 
     RedirectionsTable:
       Type: AWS::Serverless::SimpleTable
