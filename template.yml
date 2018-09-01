@@ -15,4 +15,12 @@ Resources:
           Environment:
             Variables:
               TOKEN_SIZE: 10
-              TABLE_NAME: "Redirector-Redirections-Table"
+              TABLE_NAME:
+                Ref: RedirectionsTable
+
+    RedirectionsTable:
+      Type: AWS::Serverless::SimpleTable
+      Properties:
+        PrimaryKey:
+          Name: id
+          Type: String

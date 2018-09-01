@@ -4,16 +4,23 @@ Description: 'This is the template for creating a simple URL Redirection service
 
   '
 Resources:
+  RedirectionsTable:
+    Properties:
+      PrimaryKey:
+        Name: id
+        Type: String
+    Type: AWS::Serverless::SimpleTable
   RedirectorCreateRedirection:
     Properties:
-      CodeUri: s3://url-redirector/7271bbddb12d0c61a89550e36325d11b
+      CodeUri: s3://url-redirector/fe0acb04f5d4fbda709b8f45048d437e
       Description: 'This function takes in a URL, stores it in DynamoDB with a unique
         key and returns the unique key back as a response
 
         '
       Environment:
         Variables:
-          TABLE_NAME: Redirector-Redirections-Table
+          TABLE_NAME:
+            Ref: RedirectionsTable
           TOKEN_SIZE: 10
       Handler: redirector.create_redirection
       Runtime: python3.6
