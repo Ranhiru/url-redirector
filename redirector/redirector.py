@@ -30,4 +30,4 @@ def save_url(url):
     return key
 
 def get_unique_token(token_size):
-  return secrets.token_urlsafe(token_size)
+  return secrets.token_urlsafe(int(token_size))
