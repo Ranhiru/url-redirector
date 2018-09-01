@@ -23,6 +23,21 @@ Resources:
             Ref: RedirectionsTable
           TOKEN_SIZE: 10
       Handler: redirector.create_redirection
+      Policies:
+      - Statement:
+        - Action:
+          - dynamodb:PutItem
+          Effect: Allow
+          Resource:
+            Fn::Join:
+            - ''
+            - - 'arn:aws:dynamodb:'
+              - Ref: AWS::Region
+              - ':'
+              - Ref: AWS::AccountId
+              - :table/
+              - Ref: RedirectionsTable
+        Version: '2012-10-17'
       Runtime: python3.6
     Type: AWS::Serverless::Function
 Transform: AWS::Serverless-2016-10-31

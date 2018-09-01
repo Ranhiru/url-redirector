@@ -17,6 +17,21 @@ Resources:
               TOKEN_SIZE: 10
               TABLE_NAME:
                 Ref: RedirectionsTable
+          Policies:
+            - Version: '2012-10-17'
+              Statement:
+                - Effect: Allow
+                  Action:
+                    - 'dynamodb:PutItem'
+                  Resource:
+                    'Fn::Join':
+                      - ''
+                      - - 'arn:aws:dynamodb:'
+                        - Ref: 'AWS::Region'
+                        - ':'
+                        - Ref: 'AWS::AccountId'
+                        - ':table/'
+                        - Ref: RedirectionsTable
 
     RedirectionsTable:
       Type: AWS::Serverless::SimpleTable
