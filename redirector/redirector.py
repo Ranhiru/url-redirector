@@ -22,7 +22,7 @@ def save_url(url):
     table = dynamodb.Table(os.getenv('TABLE_NAME'))
     table.put_item(
        Item={
-            'Key': key,
+            'id': key,
             'url': url,
             'created_at_utc': str(datetime.utcnow())
         }
