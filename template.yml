@@ -72,7 +72,7 @@ Resources:
               Type: Api
               Properties:
                 Path: /{url+}
-                Method: ANY
+                Method: GET
 
     RedirectionsTable:
       Type: AWS::Serverless::SimpleTable
