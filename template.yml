@@ -71,7 +71,7 @@ Resources:
             ProxyApiGreedy:
               Type: Api
               Properties:
-                Path: /{proxy+}
+                Path: /{url+}
                 Method: ANY
 
     RedirectionsTable:
