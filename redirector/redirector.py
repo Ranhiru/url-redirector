@@ -16,6 +16,17 @@ def create_redirection(event, context):
         "body": json.dumps(response)
     }
 
+def redirect(event, context):
+    key = event["pathParameters"]["url"]
+    url = get_url(key)
+
+    return {
+      "statusCode": 301,
+      "headers": {
+        "Location": url
+      }
+    }
+
 def save_url(url):
     key = get_unique_token(os.getenv("TOKEN_SIZE", 10))
     dynamodb = boto3.resource('dynamodb')
@@ -28,6 +39,17 @@ def save_url(url):
         }
     )
     return key
+
+def get_url(key):
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table(os.getenv('TABLE_NAME'))
+
+    response = table.get_item(
+        Key={
+            'id': key,
+        }
+    )
+    return response['Item']["url"]
 
 def get_unique_token(token_size):
   return secrets.token_urlsafe(int(token_size))
