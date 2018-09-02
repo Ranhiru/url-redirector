@@ -38,6 +38,15 @@ and use the URL wherever there's support for 301 redirects.
 
 E.g: `https://api.ranhiru.com/url_redirector/OJyRIBhiD7owsQ`
 
+# How to host it on my own ?
+
+1. Install AWS CLI (https://aws.amazon.com/cli/) and login using `aws configure`
+1. Install AWS SAM CLI (https://github.com/awslabs/aws-sam-cli/blob/develop/docs/installation.rst)
+1. Create new S3 bucket for uploading SAM packages (either through AWS console or using `aws s3 mb s3://my-unique-bucket name`)
+1. Clone this repository
+1. `sam package --template-file template.yml --output-template-file packaged.yaml --s3-bucket my-unique-bucket-name`
+1. `sam deploy --template-file packaged.yaml --stack-name my-stack-name --capabilities CAPABILITY_IAM`
+
 # The URL is too long! What's the point in that!?
 
 Yep. I understand! :) Ideally this should be hosted with a really short domain name but 
