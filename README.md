@@ -40,7 +40,7 @@ E.g: `https://api.ranhiru.com/url_redirector/OJyRIBhiD7owsQ`
 
 # The URL is too long! What's the point in that!?
 
-Yep. I understand! :) Ideally this should be hoested with a really short domain name but 
+Yep. I understand! :) Ideally this should be hosted with a really short domain name but 
 I'm just too lazy and this is just trying out serverless
 
 # What can be improved ?
