@@ -44,7 +44,6 @@ Yep. I understand! :) Ideally this should be hosted with a really short domain n
 I'm just too lazy and this is just trying out serverless
 
 # What can be improved ?
-
-1. Test coverage using Moto
+m1. Test coverage for the boto calls using moto*
 1. Check proper URL format with protocol (the redirection does not work without protocol) 
 1. Handle errors such as key not found and return proper error messages
