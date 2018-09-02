@@ -1,0 +1,10 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - aws cloudformation package --template-file template.yml --s3-bucket url-redirector --output-template-file packaged.yaml
+artifacts:
+  type: zip
+  files:
+    - template.yml
+    - packaged.yaml
