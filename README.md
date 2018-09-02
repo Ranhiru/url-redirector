@@ -47,6 +47,12 @@ E.g: `https://api.ranhiru.com/url_redirector/OJyRIBhiD7owsQ`
 1. `sam package --template-file template.yml --output-template-file packaged.yaml --s3-bucket my-unique-bucket-name`
 1. `sam deploy --template-file packaged.yaml --stack-name my-stack-name --capabilities CAPABILITY_IAM`
 
+# Automated Deploys
+
+This repository is deployed automatically using AWS CodePipeline. Whenever there's a new commit to the master branch of this repo, AWS CodePipeline fetches the source from Github, builds it, creates a changeset and executes it.
+
+To see how to enable CodePipeline in your own account, see https://docs.aws.amazon.com/lambda/latest/dg/build-pipeline.html
+
 # The URL is too long! What's the point in that!?
 
 Yep. I understand! :) Ideally this should be hosted with a really short domain name but 
