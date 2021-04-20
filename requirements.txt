@@ -28,7 +28,7 @@ mock==2.0.0
 more-itertools==4.3.0
 pbr==4.2.0
 pluggy==0.7.1
-py==1.5.4
+py==1.10.0
 pyaml==17.12.1
 pycparser==2.18
 pycryptodome==3.6.6
